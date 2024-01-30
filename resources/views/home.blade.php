@@ -12,27 +12,30 @@
     <h1>Trains List</h1>
   </header>
 
-  <div class="container">
+  <div class="container d-flex flex-column align-items-center gap-3 mb-5">
     <div class="row">
-      @foreach ($trains as $train)
+      @forelse ($trains as $train)
         <div class="col-3">
           <div class="card text-bg-warning mb-3 shadow" style="max-width: 18rem;">
             <div class="card-header text-white fw-bold">{{$train->azienda}}</div>
             <div class="card-body">
               <h5 class="card-title text-decoration-underline">Info Train</h5>
-              <p class="card-text"><span class="text-white">Stazione Partenza:</span>{{$train->stazione_partenza}}</p>
-              <p class="card-text"><span class="text-white">Stazione Arrivo:</span>{{$train->stazione_arrivo}}</p>
-              <p class="card-text"><span class="text-white">Orario Partenza:</span>{{$train->orario_partenza}}</p>
-              <p class="card-text"><span class="text-white">Orario Arrivo:</span>{{$train->orario_arrivo}}</p>
-              <p class="card-text"><span class="text-white">Codice Treno:</span>{{$train->codice_treno}}</p>
-              <p class="card-text"><span class="text-white">Numero Carrozze:</span>{{$train->n_carrozze}}</p>
-              <p class="card-text"> <span class="text-white">In orario:</span> {{$train->in_orario ? 'Si':'No' }}</p>
-              <p class="card-text"><span class="text-white">Cancellato:</span> {{$train->cancellato ? 'Si':'No' }}</p>
+              <p class="card-text"><span class="text-white">Stazione Partenza: </span>{{$train->stazione_partenza}}</p>
+              <p class="card-text"><span class="text-white">Stazione Arrivo: </span>{{$train->stazione_arrivo}}</p>
+              <p class="card-text"><span class="text-white">Orario Partenza: </span>{{$train->orario_partenza}}</p>
+              <p class="card-text"><span class="text-white">Orario Arrivo: </span>{{$train->orario_arrivo}}</p>
+              <p class="card-text"><span class="text-white">Codice Treno: </span>{{$train->codice_treno}}</p>
+              <p class="card-text"><span class="text-white">Numero Carrozze: </span>{{$train->n_carrozze}}</p>
+              <p class="card-text"> <span class="text-white">In orario: </span> {{$train->in_orario ? 'Si':'No' }}</p>
+              <p class="card-text"><span class="text-white">Cancellato: </span> {{$train->cancellato ? 'Si':'No' }}</p>
             </div>
           </div>
         </div>
-      @endforeach
+      @empty
+      <h2>Nessun treno disponibile</h2>
+      @endforelse
     </div>
+    {{$trains->links()}}
   </div>
 </body>
 </html>

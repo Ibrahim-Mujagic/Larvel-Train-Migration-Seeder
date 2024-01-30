@@ -10,7 +10,7 @@ class PageController extends Controller
 {
     public function index(){
 
-        $trains = Train::all();
+        $trains = Train::paginate(12);
 
         return view('home',compact('trains'));
     }
