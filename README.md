@@ -1,4 +1,4 @@
-#Laravel Train Migration Seeder
+# Laravel Train Migration Seeder
 ## Replica di un sito che presenta informazioni sui treni
 ### Fatto con Html,Css e Laravel
 ## Spero che vi piaccia 
